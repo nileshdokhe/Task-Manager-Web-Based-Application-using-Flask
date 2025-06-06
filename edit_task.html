@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+</head>
+<body>
+    <h1>Edit Task</h1>
+    <form method="POST">
+        <label>Title:</label>
+        <input type="text" name="title" value="{{ task[1] }}" required><br><br>
+        <label>Description:</label>
+        <textarea name="description" required>{{ task[2] }}</textarea><br><br>
+        <label>Completed:</label>
+        <input type="checkbox" name="done" {% if task[3] %}checked{% endif %}><br><br>
+        <button type="submit">Update Task</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back to Tasks</a>
+</body>
+</html>
